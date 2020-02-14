@@ -26,7 +26,7 @@ app.get('/notes', (req, res) =>
 app.get('/api/notes', (req, res) => {
   if (db.length > 0) {
     for (let i = 0; i < db.length; i++) {
-      db[i].id = i;
+      db[i].id = i + 1;
     }
   }
 
@@ -37,7 +37,7 @@ app.get('/api/notes', (req, res) => {
 
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
-  let noteID = db.length;
+  let noteID = db.length + 1;
 
   newNote.id = noteID;
 
