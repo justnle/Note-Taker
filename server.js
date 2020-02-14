@@ -23,7 +23,17 @@ app.get('/notes', (req, res) =>
 );
 
 // API ROUTES
-app.get('/api/notes', (req, res) => res.json(db));
+app.get('/api/notes', (req, res) => {
+  if (db.length > 0) {
+    for (let i = 0; i < db.length; i++) {
+      db[i].id = i;
+    }
+  }
+
+  console.log(db);
+
+  res.json(db);
+});
 
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
