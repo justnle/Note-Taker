@@ -10,7 +10,6 @@ const app = express();
 app.use(express.json());
 
 app.get('/notes', (req, res) => {
-  console.log(notesDB);
   if (notesDB.length > 0) {
     for (let i = 0; i < notesDB.length; i++) {
       notesDB[i].id = i + 1;
